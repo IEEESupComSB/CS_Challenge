@@ -153,6 +153,14 @@
 
 
                     <span id="custom-text">No file chosen, yet.</span>
+                    <script>
+                      function ShowProg(prog) 
+                      {
+                        document.getElementById("progress").innerHTML = "    "+prog+"%";
+                      }
+                  </script>
+
+                  <span id="progress"></span>
                     <script type="text/javascript">
                                   const realFileBtn = document.getElementById("real-file");
                                   const customBtn = document.getElementById("custom-button");
@@ -177,13 +185,13 @@
 
 
                   <script>
-                      function displayDate() 
+                      function ShowStatus(status) 
                       {
-                        document.getElementById("demo").innerHTML = "Exist";
+                        document.getElementById("status").innerHTML = status;
                       }
                   </script>
 
-                  <p id="demo"></p>
+                  <p id="status"></p>
                 </div> 
 
               </form>
@@ -241,13 +249,12 @@
           fr.readAsBinaryString(file);
           fr.onload = function (event) {        
             hex = '0x' + sha256(event.target.result)   
-            console.log(hex)        
           }
 
           fr.onprogress = function(data) {
             if (data.lengthComputable) {                                            
                 var progress = parseInt( ((data.loaded / data.total) * 100), 10 );
-                console.log(progress);
+                ShowProg(progress)
             }
         }
           
@@ -345,20 +352,22 @@
     async function load() {
       await loadWeb3()
       window.contract = await loadContract()
-      updateStatus('Ready!')
     }
     function verify() {
-      return window.contract.methods
+      if(hex!=null){
+        return window.contract.methods
         .verify(hex)
         .call()
         .then(function (x) {
-          console.log(timeConverter(x))
-          return x
+          if(x!=0){
+            ShowStatus("This document was verified on "+timeConverter(x))
+          }
+          else{
+            ShowStatus("This document is not yet verified ")
+          }
         })
-
-    }
-    function updateStatus(status) {
-      const statusEl = document.getElementById('status')
+      }
+      
 
     }
 
