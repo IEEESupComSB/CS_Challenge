@@ -32,8 +32,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/TSYP9MAX.css?v=3.0.0" rel="stylesheet" />
-  <script src="../../web3.min.js"></script>
-  <script src="../../sha256.js"></script>
+  <script src="../web3.min.js"></script>
+  <script src="../sha256.js"></script>
 </head>
 
 <body class="sign-in-basic">
@@ -232,20 +232,27 @@
     var hex;
     
     document
-      .getElementById('real-file')
-      .addEventListener('change', function () {
-        var fr = new FileReader()
-       
-        let file = document.getElementById('real-file').files[0]
-        let fileSize = file.size / 1024
-        fr.onload = function (event) {
-          
-          hex = '0x' + sha256(event.target.result)
-          
+        .getElementById('real-file')
+        .addEventListener('change', function () {
+          var fr = new FileReader()
+         
+          let file = document.getElementById('real-file').files[0]
+          let fileSize = file.size / 1024
+          fr.readAsBinaryString(file);
+          fr.onload = function (event) {        
+            hex = '0x' + sha256(event.target.result)   
+            console.log(hex)        
+          }
+
+          fr.onprogress = function(data) {
+            if (data.lengthComputable) {                                            
+                var progress = parseInt( ((data.loaded / data.total) * 100), 10 );
+                console.log(progress);
+            }
         }
-        fr.readAsBinaryString(file);
-      
-      })
+          
+        
+        })
     function timeConverter(UNIX_timestamp) {
       var a = new Date((UNIX_timestamp - 3600 * 3) * 1000)
       var months = [
