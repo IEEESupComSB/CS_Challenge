@@ -36,12 +36,19 @@
          
           let file = document.getElementById('inputfile').files[0]
           let fileSize = file.size / 1024
-          fr.onload = function (event) {
-            
-            hex = '0x' + sha256(event.target.result)
-            
-          }
           fr.readAsBinaryString(file);
+          fr.onload = function (event) {        
+            hex = '0x' + sha256(event.target.result)   
+            console.log(hex)        
+          }
+
+          fr.onprogress = function(data) {
+            if (data.lengthComputable) {                                            
+                var progress = parseInt( ((data.loaded / data.total) * 100), 10 );
+                console.log(progress);
+            }
+        }
+          
         
         })
       function timeConverter(UNIX_timestamp) {
