@@ -241,7 +241,9 @@
     document
         .getElementById('real-file')
         .addEventListener('change', function () {
+          hex = null
           var fr = new FileReader()
+
          
           let file = document.getElementById('real-file').files[0]
           let fileSize = file.size / 1024
@@ -286,58 +288,77 @@
       return time
     }
     const ABI = [
-      {
-        inputs: [],
-        stateMutability: 'nonpayable',
-        type: 'constructor',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'bytes32',
-            name: '_hash',
-            type: 'bytes32',
-          },
-        ],
-        name: 'add',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: '_adminAdress',
-            type: 'address',
-          },
-        ],
-        name: 'addAdmin',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'bytes32',
-            name: '_hash',
-            type: 'bytes32',
-          },
-        ],
-        name: 'verify',
-        outputs: [
-          {
-            internalType: 'uint256',
-            name: '',
-            type: 'uint256',
-          },
-        ],
-        stateMutability: 'view',
-        type: 'function',
-      },
-    ]
-    const contractAddress = '0x9F441125C416E8451bd476e003E7e136e0Fe174C'
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "add",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_adminAdress",
+				"type": "address"
+			}
+		],
+		"name": "addAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "verify",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_adminAdress",
+				"type": "address"
+			}
+		],
+		"name": "verifyAdmin",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+    const contractAddress = '0x415A63789918B8A4b8a4255b962938994124771C'
     async function loadWeb3() {
       if (window.ethereum) {
         window.web3 = new Web3(window.ethereum)
@@ -351,7 +372,6 @@
     async function load() {
       await loadWeb3()
       window.contract = await loadContract()
-      updateStatus('Ready!')
     }
     function verify() {
       if(hex!=null){
@@ -368,10 +388,19 @@
           }
         })
       }
+      else{
+        ShowStatus("please wait/upload a document")
+      }
     }
     async function add() {
+      var verifyPrivilege = await verifyAdmin()
       var verifyStatus = await verify()
-      if (verifyStatus == 0) {
+      if(verifyStatus == 0){
+        if(!verifyPrivilege){
+        ShowStatus("you don't have administrative permissions.")
+      }
+      
+      else{
         window.contract.methods
           .add(hex)
           .send({ from: ethereum.selectedAddress })
@@ -382,11 +411,23 @@
             ShowStatus("There was an error")
           })
       }
+      }
+      
+     
+      
     }
-    function updateStatus(status) {
-      const statusEl = document.getElementById('status')
+    function verifyAdmin() {
+      
+      return window.contract.methods
+      .verifyAdmin(ethereum.selectedAddress)
+      .call()
+      .then(function (b) {
+        return b
+      })
+    
+    
 
-    }
+  }
 
     load()
   </script>
