@@ -153,6 +153,14 @@
 
 
                     <span id="custom-text">No file chosen, yet.</span>
+                    <script>
+                      function ShowProg(prog) 
+                      {
+                        document.getElementById("progress").innerHTML = "    "+prog+"%";
+                      }
+                  </script>
+
+                  <span id="progress"></span>
                     <script type="text/javascript">
                                   const realFileBtn = document.getElementById("real-file");
                                   const customBtn = document.getElementById("custom-button");
@@ -175,9 +183,14 @@
                 <div class="text-center">
                   <button onclick="add()" type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" id="submitcode">Sign Document</button>
 
+                  <script>
+                    function ShowStatus(status) 
+                    {
+                      document.getElementById("status").innerHTML = status;
+                    }
+                </script>
 
-
-                  <p id="demo"></p>
+                <p id="status"></p>
                 </div> 
 
               </form>
@@ -235,13 +248,12 @@
           fr.readAsBinaryString(file);
           fr.onload = function (event) {        
             hex = '0x' + sha256(event.target.result)   
-            console.log(hex)        
           }
 
           fr.onprogress = function(data) {
             if (data.lengthComputable) {                                            
                 var progress = parseInt( ((data.loaded / data.total) * 100), 10 );
-                console.log(progress);
+                ShowProg(progress)
             }
         }
           
@@ -342,13 +354,20 @@
       updateStatus('Ready!')
     }
     function verify() {
-      return window.contract.methods
+      if(hex!=null){
+        return window.contract.methods
         .verify(hex)
         .call()
         .then(function (x) {
-          console.log(timeConverter(x))
-          return x
+          if(x!=0){
+            ShowStatus("This document was verified on "+timeConverter(x))
+          }
+          else{
+            ShowStatus("verifying ..")
+            return x
+          }
         })
+      }
     }
     async function add() {
       var verifyStatus = await verify()
@@ -356,11 +375,12 @@
         window.contract.methods
           .add(hex)
           .send({ from: ethereum.selectedAddress })
-          .then(function (receipt) {
-            console.log(receipt)
+          .then(function () {
+            ShowStatus("Document successfully verified")
+          },
+           function (){
+            ShowStatus("There was an error")
           })
-      } else {
-        console.log('doc already verified.')
       }
     }
     function updateStatus(status) {
