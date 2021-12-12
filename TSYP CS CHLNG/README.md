@@ -28,7 +28,7 @@ https://testnet.snowtrace.io/
 
 Then go and select this network in the metamask extension.
 
-Go to the folder location and cmd: http-server
+Go to the folder location (TSYP CS CHLNG) and cmd: http-server
 
 you will have a metamask prompt. 
 
