@@ -21539,11 +21539,13 @@ body.dark-version {
   overflow: hidden;
   display: flex;
   align-items: center;
-  /*background-image: url('https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80');*/
-  background-size: 100% 100%;
-  background-image: linear-gradient(195deg, #665aea 0%, #43A047 100%);
+  /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg');*/
+  background-size: cover;
+  /*background-image: linear-gradient(195deg, #010605 0%, #E60011 100%);*/
   background-repeat: no-repeat;
   background-attachment: fixed;
+  /*background: rgb(255,255,255);*/
+  background: linear-gradient(185deg, #161a24 0%, #373695 100%);
 }
 
 .page-header .container {
@@ -27244,7 +27246,7 @@ pre[class*="language-"] {
 
 #submitcode{
   text-align: center;
-  margin-left: 4rem;
+  margin-left: 5rem;
   border: 0.1px solid grey;
   color: black;
 
@@ -27259,14 +27261,16 @@ pre[class*="language-"] {
 
 #bagg{
   background-color: #04071cf0;
+  box-shadow: black;
 }
 #progress {
   margin-left: 1.2rem;
   margin-top: 0.63rem;
 }
 #cardynote{
-  opacity: 80%;
-  
-  
+  opacity: 90%;
+
+}
+#particles-js{
   
 }
