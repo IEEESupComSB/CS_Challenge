@@ -142,7 +142,7 @@ var hex;
         .call()
         .then(function (x) {
           if(x!=0){
-            ShowStatus("This document was verified on "+timeConverter(x))
+            ShowStatus("This document was submitted on "+timeConverter(x))
           }
           else{
             ShowStatus("verifying ..")
