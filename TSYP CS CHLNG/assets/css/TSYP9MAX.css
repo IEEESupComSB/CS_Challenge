@@ -21551,6 +21551,24 @@ body.dark-version {
 .page-header .container {
   z-index: 1;
 }
+.page-header2 {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg');*/
+  background-size: cover;
+  /*background-image: linear-gradient(195deg, #010605 0%, #E60011 100%);*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*background: rgb(255,255,255);*/
+  background: linear-gradient(185deg, #191722 0%, #b11e1e 100%);
+}
+
+.page-header2 .container {
+  z-index: 1;
+}
 
 
 
