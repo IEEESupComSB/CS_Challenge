@@ -21563,8 +21563,10 @@ body.dark-version {
   background-repeat: no-repeat;
   background-attachment: fixed;
   /*background: rgb(255,255,255);*/
-  background: linear-gradient(185deg, #191722 0%, #b11e1e 100%);
-}
+  background: linear-gradient(
+    185deg, #07021e 0%, #2d099b 100%);
+    }
+
 
 .page-header2 .container {
   z-index: 1;
@@ -27292,3 +27294,4 @@ pre[class*="language-"] {
 #particles-js{
   
 }
+
