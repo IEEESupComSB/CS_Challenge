@@ -1,4 +1,8 @@
-# How To Run
+# Demo:
+
+put gif here 
+
+# How To Run:
 
 Install metamask extension on your browser and create an account 
 
