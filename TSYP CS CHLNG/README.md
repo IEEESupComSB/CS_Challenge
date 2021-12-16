@@ -1,10 +1,12 @@
+##### [Verifini White-Paper](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 # Demo:
 
 put gif here 
 
 # How To Run:
-
-Install metamask extension on your browser and create an account 
+[
+Download](https://metamask.io/download) and install metamask extension on your browser and create an account 
 
 Go to metamask settings and add network then copy these network settings:
 
@@ -36,11 +38,12 @@ Then go and select this network in the metamask extension.
 
 [more on IPFS](https://ipfs.io/#how)
 
-**install Node.js from here: https://nodejs.org/en/download/
+**[Download](https://nodejs.org/en/download/
+) and install Node.js
 
-**Then run cmd: npm install http-server
+**Then run cmd: `npm install http-server`
 
-**Go to the folder location (TSYP CS CHLNG) and cmd: http-server
+**Go to the folder location (TSYP CS CHLNG) and cmd: `http-server`
 
 you will have a metamask prompt. 
 
