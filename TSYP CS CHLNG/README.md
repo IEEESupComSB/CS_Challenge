@@ -1,4 +1,4 @@
-##### [Verifini White-Paper](https://github.com/SamiKammoun/CS_Challenge/edit/main/TSYP%20CS%20CHLNG/README.md)
+##### [Verifini White-Paper](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 # Demo:
 
