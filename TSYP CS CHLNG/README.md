@@ -40,6 +40,7 @@ Then go and select this network in the metamask extension.
 
 **[Download](https://nodejs.org/en/download/
 ) and install Node.js
+
 **Then run cmd: `npm install http-server`
 
 **Go to the folder location (TSYP CS CHLNG) and cmd: `http-server`
