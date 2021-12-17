@@ -2,7 +2,7 @@
 
 # Demo:
 
-put gif here 
+[![Verifiny](https://img.youtube.com/vi/LMnvobrKBwA/0.jpg)](https://www.youtube.com/watch?v=LMnvobrKBwA)
 
 # How To Run:
 [
@@ -34,7 +34,7 @@ Block Explorer URL(Optional):
 
 Then go and select this network in the metamask extension.
 
-(**)you can step these steps if you don't want to run the website locally, we hosted it on IPFS for you :) : //ipfs link goes here
+(**)you can step these steps if you don't want to run the website locally, we hosted it on IPFS for you :) : [Here](https://ipfs.io/ipfs/QmWEpdUDGmw3FGPHDiPwysT4oSEYBcsmsWBrkvb4oh7rep)
 
 [more on IPFS](https://ipfs.io/#how)
 
