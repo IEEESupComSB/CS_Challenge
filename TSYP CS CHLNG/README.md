@@ -57,4 +57,4 @@ WARNING!!!: Use this next step cautiously, don't use this private key for any re
 
 import this account in metamask and use this private key, this account is admin : `4d9f23195a90321020068abe25b336f725bdc84602f8ea702040462e56649612`
 
-♥♥♥Special thanks to Soulaimene Turki for his front-end solution and to Zied Chekir for helping with web3 ♥♥♥
+♥♥♥ Special thanks to all IEEE Sup'Com SB members that helped in the development of this project ♥♥♥
