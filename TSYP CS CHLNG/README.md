@@ -1,4 +1,6 @@
-##### [Verifini White-Paper](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+#[Verifiny](https://ipfs.io/ipfs/QmWEpdUDGmw3FGPHDiPwysT4oSEYBcsmsWBrkvb4oh7rep)
+
+##### [Verifini White-Paper](https://ipfs.io/ipfs/Qmca6wGsqUqUnjBwafVhJRtWCqjtt2UEDwpGeq9eEQwt6X?filename=White_Paper_TSYP_CS_Challenge_Ze_Smurfs.pdf)
 
 # Demo:
 
